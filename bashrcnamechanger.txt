@@ -1,0 +1,5 @@
+function name() {
+    local myname="$1";
+    echo "myname: $myname"
+    PS1="[\\u@\\h:\\w] $"
+    export PS1="$(echo "\d \t $PS1"|sed -e 's/\\u/'$myname'/g')"
