@@ -1,5 +1,24 @@
+
+#Function to change username:
+
 function name() {
     local myname="$1";
     echo "myname: $myname"
     PS1="[\\u@\\h:\\w] $"
     export PS1="$(echo "\d \t $PS1"|sed -e 's/\\u/'$myname'/g')"
+
+
+
+#Function to change username and hostname:
+
+
+function name() {
+  local myname="$1"
+  local myhost="$2"
+
+  echo "myname: $myname"
+  echo "myhost: $myhost"
+
+  PS1="[\\u@\\h:\\w] $"
+  export PS1="$(echo "\d \t $PS1" | sed -e 's/\\u/'$myname'/g' -e 's/\\h/'$myhost'/g')"
+}
